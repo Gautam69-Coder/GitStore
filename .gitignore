@@ -4,6 +4,7 @@ client/node_modules/
 server/node_modules/
 
 # Production builds
+dist/
 client/dist/
 client/dist-ssr/
 

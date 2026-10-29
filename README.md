@@ -122,7 +122,17 @@ GITHUB_CLIENT_SECRET=your_oauth_client_secret # Optional if using PAT or Demo Mo
 SESSION_SECRET=gitstore_super_secret_jwt_key_2026
 ```
 
-### 4. Running the Application
+### 4. Configure Client Environment (For Deployment)
+When deploying the frontend to platforms like Vercel, Netlify, or Render:
+
+Create a `client/.env` file or configure Environment Variables in your hosting provider:
+```env
+# Point to your deployed backend server URL
+VITE_API_URL=https://your-backend-service.onrender.com/api
+```
+*(In local development, `VITE_API_URL=/api` is used by default with the Vite proxy).*
+
+### 5. Running the Application
 
 To run both client and server concurrently:
 ```bash
