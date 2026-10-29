@@ -69,27 +69,27 @@ export default function RepositoriesPage({ onOpenCreateModal, onDeleteRepo }) {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Page Header */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
-            <FolderGit2 className="w-6 h-6" />
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
+            <FolderGit2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-extrabold text-[#0F172A] tracking-tight">
+            <div className="flex items-center gap-2.5">
+              <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
                 Repositories
               </h1>
-              <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-orange-50 text-[#FF5A00] border border-orange-100">
+              <span className="text-[11px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 rounded-full bg-orange-50 text-[#FF5A00] border border-orange-100">
                 {repos.length} Total
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Browse, manage, edit code, and inspect all your connected GitHub projects.
+            <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+              Browse, manage, edit code, and inspect all your connected projects.
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 w-full md:w-auto">
           <button
             onClick={refreshRepos}
             className="p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-[#FF5A00] hover:bg-orange-50 transition-colors"
@@ -99,7 +99,7 @@ export default function RepositoriesPage({ onOpenCreateModal, onDeleteRepo }) {
           </button>
           <button
             onClick={() => navigate('/create-repository')}
-            className="flex items-center gap-2 px-5 py-2.5 bg-[#FF5A00] hover:bg-[#E04F00] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-orange-500/20 transition-all"
+            className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-[#FF5A00] hover:bg-[#E04F00] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-orange-500/20 transition-all"
           >
             <Plus className="w-4 h-4 stroke-[2.5]" />
             <span>Create Repository</span>
@@ -108,9 +108,9 @@ export default function RepositoriesPage({ onOpenCreateModal, onDeleteRepo }) {
       </div>
 
       {/* Filter & Search Controls Bar */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 sm:p-4 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-3.5">
         {/* Search */}
-        <div className="relative flex-1 max-w-md">
+        <div className="relative flex-1 w-full lg:max-w-md">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
@@ -122,7 +122,7 @@ export default function RepositoriesPage({ onOpenCreateModal, onDeleteRepo }) {
         </div>
 
         {/* Filter Pills, Sort & View Toggle */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
           {/* Visibility Tabs */}
           <div className="flex items-center p-1 bg-slate-100 rounded-xl">
             {['all', 'public', 'private'].map((t) => (

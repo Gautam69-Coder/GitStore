@@ -92,8 +92,8 @@ export default function CreateRepoModal({ isOpen, onClose, onCreated }) {
             <label className="block text-xs font-bold text-slate-700 mb-1.5">
               Repository name <span className="text-[#FF5A00]">*</span>
             </label>
-            <div className="flex items-center">
-              <span className="px-3.5 py-2.5 bg-slate-50 border border-r-0 border-slate-200 rounded-l-xl text-xs sm:text-sm font-semibold text-slate-500">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center">
+              <span className="px-3.5 py-2 sm:py-2.5 bg-slate-50 border border-b-0 sm:border-b sm:border-r-0 border-slate-200 rounded-t-xl sm:rounded-tr-none sm:rounded-l-xl text-xs sm:text-sm font-semibold text-slate-500 whitespace-nowrap">
                 {user.login} /
               </span>
               <input
@@ -102,7 +102,7 @@ export default function CreateRepoModal({ isOpen, onClose, onCreated }) {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. cloud-storage-app"
-                className="w-full px-3.5 py-2.5 rounded-r-xl border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#FF5A00] focus:ring-2 focus:ring-[#FF5A00]/15"
+                className="w-full px-3.5 py-2 sm:py-2.5 rounded-b-xl sm:rounded-bl-none sm:rounded-r-xl border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#FF5A00] focus:ring-2 focus:ring-[#FF5A00]/15"
               />
             </div>
             <p className="text-[11px] text-slate-400 mt-1">

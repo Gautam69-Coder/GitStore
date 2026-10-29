@@ -31,13 +31,13 @@ export default function OrganizationsPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
       {/* Page Header */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
-            <Users className="w-6 h-6" />
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
+            <Users className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h1 className="text-2xl font-extrabold text-[#0F172A] tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
               Organizations
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -50,7 +50,7 @@ export default function OrganizationsPage() {
           href="https://github.com/organizations/plan"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#FF5A00] hover:bg-[#E04F00] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-orange-500/20 transition-all"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-[#FF5A00] hover:bg-[#E04F00] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-orange-500/20 transition-all"
         >
           <Plus className="w-4 h-4 stroke-[2.5]" />
           <span>New Organization</span>

@@ -243,19 +243,19 @@ export default function DirectNotesUploader() {
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-sm transition-all hover:shadow-card">
+    <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-7 shadow-sm transition-all hover:shadow-card">
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5 pb-5 border-b border-slate-100">
         <div className="flex items-start sm:items-center gap-3.5">
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#FF5A00] to-[#FF8A3D] text-white flex items-center justify-center shadow-md shadow-orange-500/20 flex-shrink-0">
-            <UploadCloud className="w-6 h-6 stroke-[2.2]" />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#FF5A00] to-[#FF8A3D] text-white flex items-center justify-center shadow-md shadow-orange-500/20 flex-shrink-0">
+            <UploadCloud className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h2 className="text-lg sm:text-xl font-extrabold text-[#0F172A] tracking-tight">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h2 className="text-base sm:text-xl font-extrabold text-[#0F172A] tracking-tight truncate">
                 Direct Notes & Docs Uploader
               </h2>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-50 text-[#FF5A00] border border-orange-100 uppercase tracking-wide">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-50 text-[#FF5A00] border border-orange-100 uppercase tracking-wide flex-shrink-0">
                 Instant Git Push
               </span>
             </div>
@@ -265,12 +265,12 @@ export default function DirectNotesUploader() {
           </div>
         </div>
 
-        {/* Mode Toggle */}
-        <div className="flex items-center p-1 bg-slate-100 rounded-2xl self-start sm:self-center">
+        {/* Mode Toggle (Full width on mobile) */}
+        <div className="flex items-center p-1 bg-slate-100 rounded-2xl w-full sm:w-auto">
           <button
             type="button"
             onClick={() => { setMode('upload'); setError(null); }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+            className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               mode === 'upload'
                 ? 'bg-white text-[#FF5A00] shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'
@@ -282,7 +282,7 @@ export default function DirectNotesUploader() {
           <button
             type="button"
             onClick={() => { setMode('quicknote'); setError(null); }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+            className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               mode === 'quicknote'
                 ? 'bg-white text-[#FF5A00] shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'
@@ -491,20 +491,20 @@ export default function DirectNotesUploader() {
 
         {/* Commit Message & Action Button */}
         <div className="mt-5 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex-1 max-w-md">
+          <div className="flex-1 w-full sm:max-w-md">
             <input
               type="text"
               value={commitMessage}
               onChange={(e) => setCommitMessage(e.target.value)}
               placeholder="Commit message (e.g. docs: add lecture notes)"
-              className="w-full px-3.5 py-2 bg-slate-50 focus:bg-white text-xs text-slate-700 rounded-xl border border-slate-200 focus:outline-none focus:border-[#FF5A00]"
+              className="w-full px-3.5 py-2.5 bg-slate-50 focus:bg-white text-xs sm:text-sm text-slate-700 rounded-xl border border-slate-200 focus:outline-none focus:border-[#FF5A00]"
             />
           </div>
 
           <button
             type="submit"
             disabled={uploading || (mode === 'upload' && stagedFiles.length === 0) || (mode === 'quicknote' && !noteTitle.trim())}
-            className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[#FF5A00] hover:bg-[#E04F00] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-orange-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-2.5 bg-[#FF5A00] hover:bg-[#E04F00] text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-orange-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {uploading ? (
               <Loader2 className="w-4 h-4 animate-spin" />

@@ -64,13 +64,13 @@ export default function ActivityPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
       {/* Page Header */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
-            <Clock className="w-6 h-6" />
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
+            <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h1 className="text-2xl font-extrabold text-[#0F172A] tracking-tight">
+            <h1 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
               Activity History
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -81,7 +81,7 @@ export default function ActivityPage() {
 
         <button
           onClick={refreshRepos}
-          className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold rounded-xl transition-colors"
+          className="flex items-center justify-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold rounded-xl transition-colors self-start sm:self-center"
         >
           <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin text-[#FF5A00]' : ''}`} />
           <span>Refresh</span>
@@ -89,9 +89,9 @@ export default function ActivityPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 sm:p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
         {/* Search */}
-        <div className="relative flex-1 max-w-sm">
+        <div className="relative flex-1 w-full sm:max-w-sm">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
@@ -103,7 +103,7 @@ export default function ActivityPage() {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center p-1 bg-slate-100 rounded-xl">
+        <div className="flex flex-wrap items-center p-1 bg-slate-100 rounded-xl w-full sm:w-auto">
           {[
             { id: 'all', label: 'All' },
             { id: 'push', label: 'Pushes' },
@@ -114,7 +114,7 @@ export default function ActivityPage() {
             <button
               key={item.id}
               onClick={() => setFilterType(item.id)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+              className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                 filterType === item.id
                   ? 'bg-white text-[#FF5A00] shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
@@ -127,7 +127,7 @@ export default function ActivityPage() {
       </div>
 
       {/* Activity Timeline */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm">
         {filteredActivities.length > 0 ? (
           <div className="relative pl-6 space-y-6 before:absolute before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-slate-100">
             {filteredActivities.map((act) => (

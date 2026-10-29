@@ -19,23 +19,23 @@ export default function RepoCard({ repo, onSelectRepo, onDeleteRepo }) {
     <div className="group relative bg-white rounded-2xl border border-slate-200/80 hover:border-slate-300 p-4 sm:p-5 shadow-sm hover:shadow-card-hover transition-all duration-200">
       <div className="flex items-start justify-between gap-4">
         {/* Left: Folder Icon & Details */}
-        <div className="flex items-start gap-4 flex-1 min-w-0">
-          {/* Orange folder icon container matching screenshot */}
-          <div className="w-12 h-12 rounded-2xl bg-[#FFF3EC] border border-[#FFE4D6] flex items-center justify-center text-[#FF5A00] flex-shrink-0 group-hover:scale-105 transition-transform">
-            <Folder className="w-6 h-6 fill-current" />
+        <div className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
+          {/* Orange folder icon container */}
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#FFF3EC] border border-[#FFE4D6] flex items-center justify-center text-[#FF5A00] flex-shrink-0 group-hover:scale-105 transition-transform">
+            <Folder className="w-5 h-5 sm:w-6 sm:h-6 fill-current" />
           </div>
 
           <div className="flex-1 min-w-0">
             {/* Repo Name & Badge */}
-            <div className="flex flex-wrap items-center gap-2.5">
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => onSelectRepo(repo)}
-                className="text-base font-bold text-[#0F172A] hover:text-[#FF5A00] transition-colors truncate focus:outline-none"
+                className="text-sm sm:text-base font-bold text-[#0F172A] hover:text-[#FF5A00] transition-colors truncate max-w-[200px] sm:max-w-none text-left focus:outline-none"
               >
                 {repo.name}
               </button>
               <span
-                className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${
+                className={`text-[10px] sm:text-[11px] font-semibold px-2 sm:px-2.5 py-0.5 rounded-full border ${
                   repo.private
                     ? 'bg-[#FFF1EB] text-[#E04F00] border-orange-100'
                     : 'bg-[#ECFDF5] text-[#059669] border-emerald-100'
@@ -51,16 +51,16 @@ export default function RepoCard({ repo, onSelectRepo, onDeleteRepo }) {
             </p>
 
             {/* Metrics & Timestamp */}
-            <div className="mt-3 flex items-center gap-4 text-xs font-medium text-slate-400">
-              <span className="flex items-center gap-1.5 text-slate-600 hover:text-amber-500 transition-colors">
+            <div className="mt-2.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 text-xs font-medium text-slate-400">
+              <span className="flex items-center gap-1 text-slate-600 hover:text-amber-500 transition-colors">
                 <Star className="w-3.5 h-3.5" />
                 <span>{repo.stargazers_count ?? 0}</span>
               </span>
-              <span className="flex items-center gap-1.5 text-slate-600 hover:text-slate-800 transition-colors">
+              <span className="flex items-center gap-1 text-slate-600 hover:text-slate-800 transition-colors">
                 <GitFork className="w-3.5 h-3.5" />
                 <span>{repo.forks_count ?? 0}</span>
               </span>
-              <span className="text-slate-400">
+              <span className="text-[11px] sm:text-xs text-slate-400">
                 Updated {repo.updated_at || 'recently'}
               </span>
             </div>

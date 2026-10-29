@@ -10,16 +10,16 @@ export default function ProfilePage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6 animate-fade-in">
       {/* Profile Card */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6">
           <img
             src={user.avatar_url}
             alt={user.name}
-            className="w-24 h-24 rounded-3xl object-cover ring-4 ring-orange-100 shadow-md"
+            className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl object-cover ring-4 ring-orange-100 shadow-md flex-shrink-0"
           />
           <div className="flex-1 min-w-0">
-            <div className="flex flex-wrap items-center gap-3">
-              <h2 className="text-2xl font-extrabold text-slate-900">{user.name}</h2>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900">{user.name}</h2>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-orange-50 text-[#FF5A00] border border-orange-100">
                 @{user.login}
               </span>
@@ -28,11 +28,11 @@ export default function ProfilePage() {
               </span>
             </div>
 
-            <p className="mt-2 text-sm text-slate-600 leading-relaxed max-w-xl">
+            <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
               {user.bio || 'Full Stack Developer & Open Source Contributor.'}
             </p>
 
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-xs font-medium text-slate-500">
+            <div className="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 text-xs font-medium text-slate-500">
               <span className="flex items-center gap-1.5">
                 <Users className="w-4 h-4 text-slate-400" />
                 <span className="font-bold text-slate-800">{user.followers ?? 48}</span> followers ·{' '}
@@ -59,7 +59,7 @@ export default function ProfilePage() {
       </div>
 
       {/* Stats Bento Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <div className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
           <p className="text-xs text-slate-500 font-medium">Total Repositories</p>
           <p className="text-2xl font-extrabold text-slate-900 mt-1">{stats.totalRepos ?? 12}</p>

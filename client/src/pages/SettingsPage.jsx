@@ -16,7 +16,7 @@ export default function SettingsPage({ onOpenAuthModal }) {
 
   return (
     <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-4 sm:p-6 lg:p-8 shadow-sm">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-10 h-10 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00]">
             <Settings className="w-5 h-5" />
@@ -47,7 +47,7 @@ export default function SettingsPage({ onOpenAuthModal }) {
             </div>
             <button
               onClick={onOpenAuthModal}
-              className="px-4 py-2 bg-[#FFF3EC] hover:bg-[#FFE4D6] text-[#FF5A00] text-xs font-bold rounded-xl border border-orange-200 transition-colors"
+              className="w-full sm:w-auto text-center px-4 py-2.5 bg-[#FFF3EC] hover:bg-[#FFE4D6] text-[#FF5A00] text-xs font-bold rounded-xl border border-orange-200 transition-colors"
             >
               Change Connection
             </button>

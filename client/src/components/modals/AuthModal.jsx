@@ -66,20 +66,20 @@ export default function AuthModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 w-full max-w-lg shadow-2xl relative">
+      <div className="bg-white rounded-3xl border border-slate-100 p-5 sm:p-8 w-full max-w-lg shadow-2xl relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          className="absolute top-5 right-5 sm:top-6 sm:right-6 p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00]">
+        <div className="flex items-center gap-3 mb-2 pr-10 sm:pr-0">
+          <div className="w-10 h-10 rounded-2xl bg-orange-100 flex items-center justify-center text-[#FF5A00] flex-shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-slate-900">Connect to GitHub</h3>
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900">Connect to GitHub</h3>
             <p className="text-xs text-slate-500">
               Choose your preferred method to authenticate with GitStore.
             </p>
@@ -106,22 +106,22 @@ export default function AuthModal({ isOpen, onClose }) {
         )}
 
         {/* Tab switchers */}
-        <div className="mt-6 grid grid-cols-3 gap-2 p-1 bg-slate-100 rounded-2xl">
+        <div className="mt-6 grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-2xl">
           <button
             type="button"
             onClick={() => setActiveSubTab('pat')}
-            className={`py-2 text-xs font-bold rounded-xl transition-all ${
+            className={`py-2 px-1 text-[11px] sm:text-xs font-bold rounded-xl transition-all truncate text-center ${
               activeSubTab === 'pat'
                 ? 'bg-white text-slate-900 shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Access Token (PAT)
+            Access Token
           </button>
           <button
             type="button"
             onClick={() => setActiveSubTab('oauth')}
-            className={`py-2 text-xs font-bold rounded-xl transition-all ${
+            className={`py-2 px-1 text-[11px] sm:text-xs font-bold rounded-xl transition-all truncate text-center ${
               activeSubTab === 'oauth'
                 ? 'bg-white text-slate-900 shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'
@@ -132,7 +132,7 @@ export default function AuthModal({ isOpen, onClose }) {
           <button
             type="button"
             onClick={() => setActiveSubTab('demo')}
-            className={`py-2 text-xs font-bold rounded-xl transition-all ${
+            className={`py-2 px-1 text-[11px] sm:text-xs font-bold rounded-xl transition-all truncate text-center ${
               activeSubTab === 'demo'
                 ? 'bg-white text-[#FF5A00] shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'

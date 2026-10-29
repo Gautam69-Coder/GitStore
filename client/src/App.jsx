@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Sidebar from './components/layout/Sidebar';
+import MobileBottomNav from './components/layout/MobileBottomNav';
 import DashboardPage from './pages/DashboardPage';
 import RepositoriesPage from './pages/RepositoriesPage';
 import CreateRepositoryPage from './pages/CreateRepositoryPage';
@@ -20,6 +21,7 @@ export default function App() {
 
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleDeleteRepo = async (repo) => {
     if (window.confirm(`Are you sure you want to delete repository "${repo.name}"? This action cannot be undone.`)) {
@@ -33,17 +35,24 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F8FAFC] flex flex-col font-sans antialiased text-slate-900 selection:bg-[#FFE4D6] selection:text-[#FF5A00]">
       {/* Top Navigation */}
-      <Navbar onOpenAuthModal={() => setShowAuthModal(true)} />
+      <Navbar
+        onOpenAuthModal={() => setShowAuthModal(true)}
+        onToggleMobileMenu={() => setMobileMenuOpen((prev) => !prev)}
+      />
 
       {/* Main Layout Body */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Left Sidebar */}
-        <Sidebar onOpenCreateModal={() => setShowCreateModal(true)} />
+      <div className="flex-1 flex overflow-hidden relative">
+        {/* Left Sidebar (Desktop fixed + Mobile slide-over drawer) */}
+        <Sidebar
+          onOpenCreateModal={() => setShowCreateModal(true)}
+          mobileOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
+        />
 
         {/* Center / Main Content Area with Routes */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+        <main className="flex-1 overflow-y-auto px-3 py-4 sm:px-6 sm:py-6 lg:p-8 pb-24 lg:pb-8">
           <div className="max-w-7xl mx-auto">
             <Routes>
               {/* 1. Home Dashboard Route */}
@@ -113,6 +122,9 @@ export default function App() {
           </div>
         </main>
       </div>
+
+      {/* Mobile Bottom Navigation Bar (< lg screens) */}
+      <MobileBottomNav onOpenCreateModal={() => setShowCreateModal(true)} />
 
       {/* Global Modals */}
       <CreateRepoModal

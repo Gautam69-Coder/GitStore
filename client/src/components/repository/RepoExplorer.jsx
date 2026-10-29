@@ -448,30 +448,30 @@ export default function RepoExplorer({ repo, onBack }) {
             </div>
           </div>
 
-          {/* Action buttons */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* Action buttons (Responsive grid on mobile, flex row on tablet/desktop) */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 w-full sm:w-auto">
             <button
               onClick={() => setShowCreateFileModal(true)}
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 rounded-xl transition-all shadow-sm"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 rounded-xl transition-all shadow-xs"
             >
-              <Plus className="w-3.5 h-3.5 text-[#FF5A00]" />
-              <span>Add File / Folder</span>
+              <Plus className="w-3.5 h-3.5 text-[#FF5A00] flex-shrink-0" />
+              <span className="truncate">Add File</span>
             </button>
 
             <button
               onClick={() => setShowUploadModal(true)}
-              className="flex items-center gap-1.5 px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 rounded-xl transition-all shadow-sm"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 rounded-xl transition-all shadow-xs"
             >
-              <Upload className="w-3.5 h-3.5 text-[#FF5A00]" />
-              <span>Upload Files</span>
+              <Upload className="w-3.5 h-3.5 text-[#FF5A00] flex-shrink-0" />
+              <span className="truncate">Upload</span>
             </button>
 
             <button
               onClick={copyCloneUrl}
-              className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-slate-200/80 text-xs font-semibold text-slate-700 rounded-xl transition-colors"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-slate-200/80 text-xs font-semibold text-slate-700 rounded-xl transition-colors"
               title="Copy Git Clone URL"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" /> : <Copy className="w-3.5 h-3.5 text-slate-500 flex-shrink-0" />}
               <span>{copied ? 'Copied' : 'Clone'}</span>
             </button>
 
@@ -480,10 +480,11 @@ export default function RepoExplorer({ repo, onBack }) {
                 href={repo.html_url}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-xl border border-slate-200 text-slate-600 hover:text-[#FF5A00] hover:bg-orange-50 transition-colors"
+                className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 text-slate-600 hover:text-[#FF5A00] hover:bg-orange-50 transition-colors text-xs font-semibold"
                 title="View on GitHub"
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                <span>GitHub</span>
               </a>
             )}
           </div>
@@ -699,7 +700,7 @@ export default function RepoExplorer({ repo, onBack }) {
                     </span>
                     <button
                       onClick={() => handleDeleteFile(item)}
-                      className="opacity-0 group-hover:opacity-100 p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-all"
+                      className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition-all"
                       title="Delete item"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
