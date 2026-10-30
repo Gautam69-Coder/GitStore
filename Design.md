@@ -1,4 +1,4 @@
-# Production-Level Design System & Architecture Spec
+# Production-Level Design System & Architecture Specification
 **Project:** Antigravity (Product-Level Web Application)  
 **Target Standard:** Enterprise-Grade UI/UX & Modern Aesthetic Framework
 
